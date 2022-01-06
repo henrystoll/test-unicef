@@ -4,11 +4,19 @@ import { AppModule } from './app.module'
 import { ValidationPipe } from '@nestjs/common'
 import { PrismaService } from './prisma.service'
 import { PrismaModel } from './_gen/prisma-class'
+import {
+  FastifyAdapter,
+  NestFastifyApplication,
+} from '@nestjs/platform-fastify'
 
 declare const module: any
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, { cors: true })
+  const app = await NestFactory.create<NestFastifyApplication>(
+    AppModule,
+    new FastifyAdapter(),
+    { cors: true },
+  )
 
   app.useGlobalPipes(
     new ValidationPipe({

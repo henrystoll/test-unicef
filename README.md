@@ -65,6 +65,7 @@ $ npm run test:cov
     [ ] updateDto with Swagger
     [x] Exception Handling
     [5] Prisma
+    [x] fastify
         [ ] prisma-dbml-generator
         [x] prisma-erd-generator
         [x] prisma-class-generator
@@ -72,6 +73,8 @@ $ npm run test:cov
         [ ] Guards (RBAC)
         [ ] CASL isomorphic authorization
     [ ] oAuth2
+
+
     [x] CORS
     [ ] health checks
     [ ] compodoc
