@@ -64,13 +64,13 @@ $ npm run test:cov
     [x] Input Validation (transformation)
     [ ] updateDto with Swagger
     [x] Exception Handling
-    [ ] Prisma
+    [5] Prisma
         [ ] prisma-dbml-generator
-        [ ] prisma-erd-generator
-        [ ] prisma-class-generator
+        [x] prisma-erd-generator
+        [x] prisma-class-generator
     [ ] Users
-    [ ] Role Guards
-        - TODO: If you're using @nestjs/typeorm with *Hot Realoading*, you'll need to add keepConnectionAlive: true to your TypeORM configuration.
+        [ ] Guards (RBAC)
+        [ ] CASL isomorphic authorization
     [ ] oAuth2
     [ ] CORS
     [ ] health checks
