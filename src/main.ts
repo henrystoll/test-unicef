@@ -3,12 +3,10 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import { AppModule } from './app.module'
 import { ValidationPipe } from '@nestjs/common'
 import { PrismaService } from './prisma.service'
-import { PrismaModel } from './_gen/prisma-class'
 import {
   FastifyAdapter,
   NestFastifyApplication,
 } from '@nestjs/platform-fastify'
-import fastifyCsrf from 'fastify-csrf'
 
 declare const module: any
 
@@ -34,12 +32,13 @@ async function bootstrap() {
     // .addServer('HTTPS')
     .build()
   const document = SwaggerModule.createDocument(app, config, {
-    extraModels: [...PrismaModel.extraModels],
+    // prisma-class-generator
+    // extraModels: [...PrismaModel.extraModels],
   })
   SwaggerModule.setup('api', app, document)
 
   // csrf protection with csurf
-  app.register(fastifyCsrf)
+  // app.register(fastifyCsrf)
 
   await app.listen(3000)
 

@@ -59,17 +59,21 @@ $ npm run test:cov
 ```
 
 ## Features
+
     [x] Input Validation (transformation)
     [x] Exception Handling
     - High performance with `fastify`
 
 ### Development
+
     [x] Hot Reload
     [x] Open API v3 + Swagger
         - automatic class generation
-    
+
 ### Security
+
     - CORS enabled
+    - CSRF protection with `csurf`
 
 ## Todos
 
@@ -83,6 +87,7 @@ $ npm run test:cov
     [ ] oAuth2
     [ ] health checks
     [ ] compodoc
+
 ## License
 
 Nest is [MIT licensed](LICENSE).

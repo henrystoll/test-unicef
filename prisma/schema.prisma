@@ -5,10 +5,17 @@ generator client {
   provider = "prisma-client-js"
 }
 
-generator prismaClassGenerator {
-  provider = "prisma-class-generator"
-  dryRun   = false
+generator nestjsDto {
+  provider                        = "prisma-generator-nestjs-dto"
+  // output                          = "../src"
+  outputToNestJsResourceStructure = "true"
+  // exportRelationModifierClasses   = "false"
 }
+
+// generator prismaClassGenerator {
+//   provider = "prisma-class-generator"
+//   dryRun   = false
+// }
 
 // generator erd {
 //  provider = "prisma-erd-generator"
@@ -31,6 +38,7 @@ model User {
   id    Int     @id @default(autoincrement())
   email String  @unique
   name  String?
+  /// @DtoRelationRequired
   org   Org     @relation(fields: [orgId], references: [id])
   orgId Int
 }

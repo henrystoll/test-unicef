@@ -9,17 +9,32 @@ import {
 } from '@nestjs/common'
 import { UsersService } from './users.service'
 import { User as UserModel } from '@prisma/client'
-import { ApiTags } from '@nestjs/swagger'
+import { ApiOperation, ApiTags } from '@nestjs/swagger'
+import { CreateUserDto } from '../generated/nestjs-dto/create-user.dto'
 
 @Controller('users')
 @ApiTags('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @Post()
-  async create(
+  @Post('/test')
+  @ApiOperation({ description: 'Create a user' })
+  async createOld(
     @Body() userData: { orgId: number; email: string; name?: string },
   ): Promise<UserModel> {
+    const { orgId, email, name } = userData
+    return this.usersService.createUser({
+      org: {
+        connect: { id: orgId },
+      },
+      email,
+      name,
+    })
+  }
+
+  @Post()
+  @ApiOperation({ description: 'Create a user' })
+  async create(@Body() userData: CreateUserDto): Promise<UserModel> {
     const { orgId, email, name } = userData
     return this.usersService.createUser({
       org: {
