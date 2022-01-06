@@ -58,14 +58,22 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Todos
+## Features
+    [x] Input Validation (transformation)
+    [x] Exception Handling
+    - High performance with `fastify`
+
+### Development
     [x] Hot Reload
     [x] Open API v3 + Swagger
-    [x] Input Validation (transformation)
-    [ ] updateDto with Swagger
-    [x] Exception Handling
-    [5] Prisma
-    [x] fastify
+        - automatic class generation
+    
+### Security
+    - CORS enabled
+
+## Todos
+
+    [5] Prisma ORM with Azure SQL + shadowDB
         [ ] prisma-dbml-generator
         [x] prisma-erd-generator
         [x] prisma-class-generator
@@ -73,9 +81,6 @@ $ npm run test:cov
         [ ] Guards (RBAC)
         [ ] CASL isomorphic authorization
     [ ] oAuth2
-
-
-    [x] CORS
     [ ] health checks
     [ ] compodoc
 ## License
