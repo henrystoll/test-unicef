@@ -72,7 +72,7 @@ $ npm run test:cov
         [ ] Guards (RBAC)
         [ ] CASL isomorphic authorization
     [ ] oAuth2
-    [ ] CORS
+    [x] CORS
     [ ] health checks
     [ ] compodoc
 ## License
