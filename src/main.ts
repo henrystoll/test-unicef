@@ -3,11 +3,12 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger'
 import { AppModule } from './app.module'
 import { ValidationPipe } from '@nestjs/common'
 import { PrismaService } from './prisma.service'
+import { PrismaModel } from './_gen/prisma-class'
 
 declare const module: any
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule)
+  const app = await NestFactory.create(AppModule, { cors: true })
 
   app.useGlobalPipes(
     new ValidationPipe({
@@ -23,7 +24,9 @@ async function bootstrap() {
     .setVersion('0.1')
     // .addServer('HTTPS')
     .build()
-  const document = SwaggerModule.createDocument(app, config)
+  const document = SwaggerModule.createDocument(app, config, {
+    extraModels: [...PrismaModel.extraModels],
+  })
   SwaggerModule.setup('api', app, document)
 
   await app.listen(3000)
